@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Reboot the machine
+      reboot:
+        reboot_timeout: 3600
+        test_command: uptime
