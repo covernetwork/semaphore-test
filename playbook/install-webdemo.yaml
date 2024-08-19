@@ -1,0 +1,14 @@
+---
+- name: Install Docker on Ubuntu
+  hosts: all
+  remote_user: root
+  become: true
+
+  tasks:
+    - name: Install Demo App
+      community.docker.docker_container:
+        name: webdemo
+        image: salmooon/demo
+        state: present
+        ports:
+          - 3300:3000
