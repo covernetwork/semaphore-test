@@ -9,6 +9,6 @@
       community.docker.docker_container:
         name: webdemo
         image: salmooon/demo
-        state: present
+        state: started
         ports:
           - 3300:3000
