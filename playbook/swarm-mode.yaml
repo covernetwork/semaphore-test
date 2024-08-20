@@ -1,0 +1,14 @@
+- name: Swarm Mode
+  hosts: all
+  remote_user: root
+  become: true
+
+  tasks:
+  - name: Init Swarm Mode
+    community.docker.docker_swarm:
+      state: present
+
+  - name: Get info on Docker Swarm
+    community.docker.docker_swarm_info:
+    ignore_errors: true
+    register: result
