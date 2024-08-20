@@ -1,0 +1,11 @@
+- name: Install Nginx
+  hosts: all
+  remote_user: root
+  become: true
+
+  tasks:
+  - name: Install Nginx
+    community.docker.docker_container:
+      name: nginx
+      image: nginx
+      state: started
