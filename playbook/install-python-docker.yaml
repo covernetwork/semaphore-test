@@ -7,10 +7,10 @@
   tasks:
   - name: Multiple questions with responses
     ansible.builtin.expect:
-    command: launch.sh
-    responses:
-      "Do you want to continue? [Y/n]":
-      - "Y"
+      command: launch.sh
+      responses:
+        "Do you want to continue? [Y/n]":
+        - "Y"
 
   - name: install python package manager
     apt:
