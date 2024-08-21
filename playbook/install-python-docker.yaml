@@ -10,7 +10,7 @@
       name: python3-pip
 
   - name: install python sdk
-    become_user: "{{ ansible_env.SUDO_USER }}"
+    become_user: root
     pip:
       name:
       - docker
