@@ -1,0 +1,10 @@
+- name: Install Demo Web App
+  hosts: all
+  remote_user: root
+  become: true
+
+  tasks:
+  - name: Install Node App
+    community.docker.docker_swarm_service:
+      name: demo
+      image: salmooon/demo
