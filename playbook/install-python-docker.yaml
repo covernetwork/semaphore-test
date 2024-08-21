@@ -6,7 +6,7 @@
 
   tasks:
   - name: Multiple questions with responses
-    ansible.builtin.expect:
+    expect:
       command: apt install python3-pip
       responses:
         "Do you want to continue? [Y/n]":
