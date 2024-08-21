@@ -7,5 +7,4 @@
   - name: Get info on Docker Swarm
     community.docker.docker_swarm_info:
       nodes: true
-    ignore_errors: true
     register: result
