@@ -9,15 +9,15 @@
     apt:
       name: python3-pip
 
+  - name: "Provide custom input"
+    ansible.builtin.expect:
+      command: 'launch.sh'
+      responses:
+        'Do you want to continue\"\[Y\/N\]\"': 'y'
+
   - name: install python sdk
     become_user: root
     pip:
       name:
       - docker
       - docker-compose
-
-- name: "Provide custom input"
-  ansible.builtin.expect:
-    command: 'launch.sh'
-    responses:
-      'Do you want to continue\"\[Y\/N\]\"': 'y'
