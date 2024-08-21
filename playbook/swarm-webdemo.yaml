@@ -9,5 +9,4 @@
       name: demo
       image: salmooon/demo
       publish:
-        published_port: 3000
-        target_port: 3030
+      - 3000:3030
