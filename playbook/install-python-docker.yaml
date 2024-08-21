@@ -13,7 +13,7 @@
         - "Y"
 
   - name: install python package manager
-    apt:
+    ansible.builtin.apt:
       name: python3-pip
 
   - name: install python sdk
