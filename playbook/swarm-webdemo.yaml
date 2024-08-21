@@ -8,7 +8,6 @@
     community.docker.docker_swarm_service:
       name: demo
       image: salmooon/demo
-      # resolve_image: true
       publish:
       - published_port: 3030
         target_port: 3030
