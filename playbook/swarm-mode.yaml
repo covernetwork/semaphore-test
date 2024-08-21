@@ -6,6 +6,7 @@
   tasks:
   - name: Init Swarm Mode
     community.docker.docker_swarm:
+      advertise_addr: 202.10.41.137
       state: present
 
   - name: Get info on Docker Swarm
