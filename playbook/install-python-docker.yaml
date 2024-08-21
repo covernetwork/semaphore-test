@@ -5,16 +5,16 @@
   become: true
 
   tasks:
-  - name: Multiple questions with responses
-    ansible.builtin.expect:
-      command: launch.sh
-      responses:
-        "Do you want to continue? [Y/n]":
-        - "Y"
-
   - name: install python package manager
     apt:
       name: python3-pip
+
+  - name: Multiple questions with responses
+    ansible.builtin.expect:
+      command: apt
+      responses:
+        "Do you want to continue? [Y/n]":
+        - "Y"
 
   - name: install python sdk
     become_user: root
