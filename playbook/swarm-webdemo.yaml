@@ -8,3 +8,4 @@
     community.docker.docker_swarm_service:
       name: demo
       image: salmooon/demo
+      publish: 3000:3030
