@@ -17,7 +17,7 @@
       - docker-compose
 
 - name: "Provide custom input"
-  expect:
-  command: 'launch.sh'
-  responses:
-    'Do you want to continue\"\[Y\/N\]\"': 'y'
+  ansible.builtin.expect:
+    command: 'launch.sh'
+    responses:
+      'Do you want to continue\"\[Y\/N\]\"': 'y'
