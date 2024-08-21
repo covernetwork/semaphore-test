@@ -1,0 +1,10 @@
+- name: Swarm Info
+  hosts: all
+  remote_user: root
+  become: true
+
+  tasks:
+  - name: Get info on Docker Swarm
+    community.docker.docker_swarm_info:
+    ignore_errors: true
+    register: result
