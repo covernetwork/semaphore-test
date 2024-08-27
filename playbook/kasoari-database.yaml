@@ -1,0 +1,41 @@
+- name: Create Kasoari Database
+  hosts: all
+  remote_user: root
+  become: true
+
+  tasks:
+    - name: Creating Kasoari Volume
+      community.docker.docker_volume:
+        name: kasoari-mariadb
+
+    - name: Creating Database
+      community.docker.docker_swarm_service:
+        name: kasoari-database
+        image: mariadb
+        restart: unless-stopped
+        volumes:
+          - type: volume
+            source: kasoari-mariadb
+            target: "/var/lib/mysql"
+            read_only: false
+          - type: bind
+            source: "../autoload/kasoari-initdb.sql"
+            target: "/docker-entrypoint-initdb.d/"
+            read_only: true
+        networks:
+          - kasoari
+        environment:
+          - MARIADB_ROOT_PASSWORD=000111
+
+    - name: Creating phpmyadmin
+      community.docker.docker_swarm_service:
+        name: kasoari-phpmyadmin
+        image: phpmyadmin
+        restart: unless-stopped
+        environment:
+          PMA_HOST: kasoari-database
+          PMA_ARBITRARY: 1
+        networks:
+          - kasoari
+        ports:
+          - 8181:80

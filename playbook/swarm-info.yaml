@@ -4,7 +4,7 @@
   become: true
 
   tasks:
-  - name: Get info on Docker Swarm
-    community.docker.docker_swarm_info:
-      nodes: true
-    register: result
+    - name: Get info on Docker Swarm
+      community.docker.docker_swarm_info:
+        nodes: true
+      register: result

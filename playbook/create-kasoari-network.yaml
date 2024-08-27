@@ -1,0 +1,9 @@
+- name: Create Kasoari Network
+  hosts: all
+  remote_user: root
+  become: true
+
+  tasks:
+    - name: Creating Kasoari Network
+      community.docker.docker_network:
+        name: kasoari
