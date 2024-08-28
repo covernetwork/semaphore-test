@@ -13,8 +13,7 @@
       chdir: /home/demo/github
     ansible.builtin.command:
       argv:
-      - git clone
-      - '{{ http_clone }}'
+      - git clone '{{ http_clone }}' .
 
   - name: Deploy Image From Source Code
     args:
