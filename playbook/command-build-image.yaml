@@ -16,6 +16,6 @@
 
   - name: Deploy Image From Source Code
     args:
-      chdir: /home/demo/github/semaphore-test/web
+      chdir: /home/demo/github/web
     ansible.builtin.command:
       cmd: docker build -t demo-webapp
