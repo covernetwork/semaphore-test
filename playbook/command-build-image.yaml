@@ -13,7 +13,7 @@
       chdir: /home/demo/github
     ansible.builtin.command:
       argv:
-      - git clone https://github.com/covernetwork/semaphore-test.git .
+      - mkdir testing
 
   - name: Deploy Image From Source Code
     args:
