@@ -18,4 +18,4 @@
     args:
       chdir: /home/demo/github/web
     ansible.builtin.command:
-      cmd: docker build -t demo-webapp
+      cmd: docker build -t demo-webapp .
