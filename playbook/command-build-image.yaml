@@ -19,3 +19,7 @@
       chdir: /home/demo/github/web
     ansible.builtin.command:
       cmd: docker build -t demo-webapp .
+
+  - name: Create Service
+    ansible.builtin.command:
+      cmd: docker service deploy --name demo-webapp --publish 4000:3000 demo-webapp
