@@ -12,7 +12,7 @@
     args:
       chdir: /home/demo/github
     ansible.builtin.command:
-      cmd: git clone https://github.com/covernetwork/semaphore-test.git .
+      cmd: git pull https://github.com/covernetwork/semaphore-test.git
 
   - name: Deploy Image From Source Code
     args:
