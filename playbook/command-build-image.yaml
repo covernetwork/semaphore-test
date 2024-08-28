@@ -5,16 +5,16 @@
 
   tasks:
   - name: Clone Source Code
+    args:
+      chdir: /home/demo/github
     ansible.builtin.command:
-      args:
-        chdir: /home/demo/github
       argv:
       - git clone
       - '{{ http_clone }}'
 
   - name: Deploy Image From Source Code
+    args:
+      chdir: /home/demo/github/semaphore-test/web
     ansible.builtin.command:
-      args:
-        chdir: /home/demo/github/semaphore-test/web
       argv:
       - docker build -t demo-webapp
