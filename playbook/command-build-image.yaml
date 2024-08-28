@@ -4,6 +4,10 @@
   become: true
 
   tasks:
+  - name: Install Openssh Client
+    ansible.builtin.apt:
+      name: openssh-client
+
   - name: Clone Source Code
     args:
       chdir: /home/demo/github
