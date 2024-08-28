@@ -9,7 +9,7 @@
       argv:
       - git clone
       - '{{ http_clone }}'
-      - /home/demo/github/semaphore-test
+      - /home/demo/github
 
   - name: Deploy Image From Source Code
     ansible.builtin.command:
