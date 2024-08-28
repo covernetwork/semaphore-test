@@ -20,6 +20,10 @@
     ansible.builtin.command:
       cmd: docker build -t demo-webapp .
 
+  - name: Remove Service
+    ansible.builtin.command:
+      cmd: docker service rm demo-webapp
+
   - name: Create Service
     ansible.builtin.command:
       cmd: docker service create --name demo-webapp --publish 4000:3030 demo-webapp
