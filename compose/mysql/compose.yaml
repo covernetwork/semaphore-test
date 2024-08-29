@@ -1,3 +1,9 @@
+# docker backup
+# docker exec [CONTAINER] /usr/bin/mariadb-dump -u root --password=root [DATABASE] > backup.sql
+
+# docker restore
+# cat backup.sql | docker exec -i [CONTAINER] /usr/bin/mariadb -u root --password=root [DATABASE]
+
 volumes:
   demo-mariadb:
    name: demo-mariadb
