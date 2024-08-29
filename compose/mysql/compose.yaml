@@ -1,0 +1,34 @@
+volumes:
+  demo-mariadb:
+   name: demo-mariadb
+
+services:
+  demo-database:
+   image: mariadb
+   restart: unless-stopped
+   volumes:
+     - type: volume
+       source: demo-mariadb
+       target: /var/lib/mysql
+       read_only: false
+     - type: bind
+       source: ./init.sql
+       target: /docker-entrypoint-initdb.d/init.sql
+       read_only: true
+   environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_DATABASE: demo
+     MYSQL_USER: demo
+     MYSQL_PASSWORD: demo
+
+  demo-phpmyadmin:
+   image: phpmyadmin
+   restart: unless-stopped
+   ports:
+     - 8080:80
+   environment:
+     PMA_HOST: demo-database
+     PMA_PORT: 3306
+     PMA_USER: demo
+     PMA_PASSWORD: demo
+     PMA_ARBITRARY: 1
