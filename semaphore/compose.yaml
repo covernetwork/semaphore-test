@@ -1,10 +1,9 @@
 # source code: https://docs.semaphoreui.com/administration-guide/installation
 
 services:
-  semaphore-mysql:
+  semaphore_mysql:
     env_file:
       - ../.env
-    container_name: semaphore_database
     restart: unless-stopped
     image: mysql:8.0
     hostname: mysql
@@ -18,7 +17,6 @@ services:
   semaphore:
     env_file:
       - ../.env
-    container_name: semaphore
     restart: unless-stopped
     ports:
       - 9090:3000
