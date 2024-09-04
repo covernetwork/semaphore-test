@@ -1,0 +1,4 @@
+services:
+  demo-database:
+    environment:
+      - MARIADB_ROOT_PASSWORD=000111
